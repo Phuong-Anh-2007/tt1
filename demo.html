@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    //Tìm giá trị lớn nhất hoặc nhỏ nhất
+        let arr = [1,4,5,2,4,7,9,0,2,4,9,10];
+        let max = arr[0];
+        let min = arr[0];
+
+        for (let i=0; i<arr.length; i++) {
+            if (max < arr[i]) {
+                max = arr[i];
+            }
+        }
+
+        for (let i=0; i<arr.length; i++) {
+            if (min > arr[i]) {
+                min= arr[i];
+            }
+        }
+        document.write('Giá trị lớn nhất trong mảng là: '+max);
+        document.write('<br>'+'Giá trị nhỏ nhất trong mảng là: '+min)
+
+        document.write('<br><br>');
+        
+    //  Đếm số lần xuất hiện của phần tử trong mảng
+        let number = 4;
+        let count = 0;
+
+        for (let i=0; i<arr.length; i++) {
+            if (arr[i] == number){
+                count++;
+            }
+        }
+
+        document.write('Phần tử cần tìm là: '+number+' xuất hiện '+count+' lần trong mảng');
+    </script>
+</body>
+</html>
