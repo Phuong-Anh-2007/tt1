@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <canvas id="canvas" width="500" height="500"></canvas>
+    <script>
+        class Rect {
+            constructor(x,y,width,height) {
+                this.x = x;
+                this.y = y;
+                this.width = width;
+                this.height = height;
+            }
+        }
+
+        let ct_1 = new Rect(0,0,10,10);
+        let ct_2 = new Rect(50,100,10,10);
+
+        let ctx = document.getElementById('canvas').getContext('2d');
+        ctx.fillRect(ct_1.x, ct_1.y, ct_1.width, ct_1.height);
+        ctx.fillRect(ct_1.x, ct_1.y, ct_2.width, ct_2.height);
+
+        class Main {
+            constructor(rect1,rect2) {
+                this.rect1 = ct_1;
+                this.rect2 = ct_2;
+                // |(x1 + W1/2)| - |(x2 + W2/2) ≤ |(W1 + W2)/2|
+                this.ox = Math.abs(this.rect1.x + this.rect1.width/2) - Math.abs(this.rect2.x + this.rect2.width/2) <= Math.abs(this.rect1.width + this.rect2.width/2);
+                // |(y1 + H1/2)| - |(y2 + H2/2) ≤ |(H1 + H2)/2|
+                this.oy = Math.abs(this.rect1.y + this.rect1.height/2) - Math.abs(this.rect2.y + this.rect2.height/2) <= Math.abs(this.rect1.height + this.rect2.height/2);
+            }
+
+            collission() {
+                if (this.ox && this.oy) {
+                    alert('Hai hình chữ nhật va chạm');
+                } else {
+                    alert('Hai hình chữ nhật không va chạm');
+                }
+            }
+        }
+
+        let main = new Main(ct_1,ct_2);
+        main.collission();
+    </script>
+</body>
+</html>
